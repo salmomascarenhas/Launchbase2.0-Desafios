@@ -39,15 +39,15 @@ server.get('/', (req,res) => {
         ]
     };
 
-    res.render('about' , {about});
+    return res.render('about' , {about});
 });
 
 server.get('/courses', (req,res) => {
-    res.render('courses', {courses});
+    return res.render('courses', {courses});
 });
 
 server.use(function(req, res) {
-    res.status(404).render("not-found");
+    return res.status(404).render("not-found");
   });
 
 
