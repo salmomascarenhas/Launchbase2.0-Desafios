@@ -43,16 +43,32 @@ server.get('/', (req,res) => {
 });
 
 server.get('/courses', (req,res) => {
+
     return res.render('courses', {courses});
 });
 
-server.use(function(req, res) {
+server.get('/courses/:id', (req,res) => {
+    const id = req.params.id;
+
+    const course = courses.find( course => course.id === id);
+
+    if(!course){
+        return res.render('not-found');
+    }
+
+    return res.render('course', {id});
+});
+
+
+
+server.use((req, res) => {
     return res.status(404).render("not-found");
   });
 
 
 
-//PORT SERVER
+
+//SERVER INIT
 server.listen(5000, () => {
     console.log('Server is runnig');
 });

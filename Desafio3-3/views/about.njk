@@ -1,0 +1,31 @@
+{% extends 'base.njk' %}
+
+{% block head %}
+
+    <title>Sobre - Rocketseat</title>        
+    
+
+{% endblock %}
+
+{% block content %}
+
+    <main>
+        <div class="content">
+            <img src={{about.avatarUrl}} alt="Logo Rocketseat">
+            <h1>{{about.title}}</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora dolorum, culpa natus nulla recusandae nobis numquam illum assumenda. Placeat veniam non quos tenetur, amet ab commodi quod qui repellendus voluptatibus?</p>
+            <ul>
+                {% for tech in about.techs %}
+                    <li>{{tech}}</li>
+                {% endfor %}
+            </ul>
+    
+            <div id="links">
+            {% for networkSocial in about.networkSocials %}
+                <a href={{networkSocial.link}} target="_blank">{{networkSocial.name}}</a>
+            {% endfor %}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
