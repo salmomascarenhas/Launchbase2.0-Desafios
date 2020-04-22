@@ -1,0 +1,25 @@
+{% extends 'base.njk' %}
+
+{% block content %}
+    <div class="cards">
+    {% for recipe in recipes %}
+        <div class="card" id={{recipe.id}}>
+            <img src={{recipe.imgSource}} alt="">
+            <h1>{{recipe.title}}</h1>
+            <p>por {{recipe.autor}}</p>
+        </div>
+    {% endfor %}
+    </div>
+
+        {# -- MODAL -- #}
+    <div class="over-modal">
+        <div class="modal ">
+            <img src='assets\lasanha.png' alt="">
+            <h1 class="recipe-title"></h1>
+            <p class="recipe-autor">Por </p>
+            <p class="modal-close">Fechar</p>
+        </div>
+    </div>
+
+    <script src="/scripts.js"></script>
+{% endblock content %}
